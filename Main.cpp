@@ -4,13 +4,15 @@
 
 using namespace std;
 
-
-
 int main() {
     string inputText;
     MorseTranslator *morseTranslator = new MorseTranslator;
-    cout << "Write some text:" << std::endl;
-    cin >> inputText;
-    cout << morseTranslator->translateMorse(inputText);
-    return 0;
+    cout << "Write some text to translate to morse. Type exit to exit." << std::endl;
+    do {
+        getline(cin, inputText);
+        if(!inputText.compare("exit")) {
+            return 0;
+        }
+        cout << morseTranslator->translateMorse(inputText) << endl;
+    } while (true);
 }
